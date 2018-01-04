@@ -44,7 +44,7 @@ while (choice != 0):
 	check = ""
 	code = ""
 	mode = ""
-	if(choice == 1 or choice == 3):
+	if(choice == 1):
 		check = json.loads(ana("user",url))
 		print check["stat"]
 		if (check["stat"]!="ok"):
@@ -53,6 +53,17 @@ while (choice != 0):
 			continue
 		else:
 			link += "&method=flickr.people.getPhotos&per_page=500&user_id=" + check["user"]["id"]
+			code = check["user"]["id"]
+			print code
+	elif(choice == 3):
+		check = json.loads(ana("user",url))
+		print check["stat"]
+		if (check["stat"]!="ok"):
+			print check["message"]
+			raw_input("press any key to continue...")
+			continue
+		else:
+			link += "&method=flickr.favorites.getList&per_page=500&user_id=" + check["user"]["id"]
 			code = check["user"]["id"]
 			print code
 	elif(choice == 4):
