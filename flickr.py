@@ -25,7 +25,6 @@ def ana(mode,url):
 	else:
 		return False
 	return curl(api + "&method=" + method + "&url=" + url)
-print json.loads(ana("user","asdf"))["stat"]
 
 while (choice != 0):
 	link = api
